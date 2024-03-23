@@ -15,28 +15,6 @@ begin
     
 end arch_somador;
 
-
--- Componente importante no projeto final. Desnecessário p/ atividade do Judge
-
---entity extende_palavra is 
---port(
---	x : in bit_vector(7 downto 0);
---   q : out bit_vector(31 downto 0)
---);
---end extende_palavra;
---
---architecture arch_extende of extende_palavra is
---begin 
---	
---    -- Replicação da palavra para formar as entradas
---    q(31 downto 24) <= x(7 downto 0);
---    q(23 downto 16) <= x(7 downto 0);
---    q(15 downto 8) <= x(7 downto 0);
---    q(7 downto 0) <= x(7 downto 0);
---    
---end arch_extende;
-
-
 entity stepfun is 
 port(
     ai, bi, ci, di, ei, fi, gi, hi : in bit_vector(31 downto 0);
@@ -47,7 +25,7 @@ end stepfun;
 
 architecture arch_stepfun of stepfun is
     
-    -- Components 
+    -- Declaração dos components 
     component somador is 
     port(
         x, y : in bit_vector(31 downto 0);
@@ -83,32 +61,12 @@ architecture arch_stepfun of stepfun is
     );
     end component;
     
-    --component extende_palavra is 
-    --port(
-    --	x : in bit_vector(7 downto 0);
-    --	q : out bit_vector(31 downto 0)
-    --);
-    --end component;
-    
-    -- Signals 
+    -- Declaração dos signals
     signal soma1, soma2, soma3, soma4, soma5, soma6 : bit_vector(31 downto 0);
     signal ch_out, maj_out, sum0_out, sum1_out : bit_vector(31 downto 0);
-    signal SW : bit_vector(7 downto 0); -- Aqui eh a ideia. No codigo da entrega vem da pinagem
-	 
-	 
-
+    --signal SW : bit_vector(7 downto 0); -- Entrada das chaves é declarada na entidade principal
 begin 
 
-	-- Replicação da palavra para formar as entradas
-   --ext1: extende_palavra port map(SW, ai);
-    --ext2: extende_palavra port map(SW, bi);
-	--ext3: extende_palavra port map(SW, ci);
-	--ext4: extende_palavra port map(SW, di);
-	--ext5: extende_palavra port map(SW, fi);
-	--ext6: extende_palavra port map(SW, gi);
-	--ext7: extende_palavra port map(SW, hi);	 
-    
-    
     -- Somas
     soma1_port: somador port map(hi, kpw, soma1);
     soma2_port: somador port map(ch_out, soma1, soma2);
