@@ -17,14 +17,12 @@ architecture testbench of contador_tb is
     component contador
         port (
             rst, clk  : in  bit;
-            controle  : out bit_vector(5 downto 0);
             count_end : out bit
         );
     end component;
 
     -- Signals for the testbench
     signal rst_tb, clk_tb : bit := '0';
-    signal controle_tb    : bit_vector(5 downto 0);
     signal count_end_tb   : bit;
 
     -- Clock process
@@ -32,7 +30,7 @@ architecture testbench of contador_tb is
     begin
 
     -- Instantiate the contador module
-    uut: contador port map (rst_tb, clk_tb, controle_tb, count_end_tb);
+    uut: contador port map (rst_tb, clk_tb, count_end_tb);
 
     -- Clock process
     clk_process: process
