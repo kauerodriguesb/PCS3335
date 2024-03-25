@@ -32,7 +32,7 @@ architecture testbench of contador_tb is
     begin
 
     -- Instantiate the contador module
-    uut: contador port map (rst_tb; clk_tb; controle_tb; count_end_tb);
+    uut: contador port map (rst_tb, clk_tb, controle_tb, count_end_tb);
 
     -- Clock process
     clk_process: process
@@ -53,12 +53,12 @@ architecture testbench of contador_tb is
         rst_tb <= '0';
         wait for PERIOD;
 
-        assert count_end = '0' report "Falha reset" severity note;
+        assert count_end_tb = '0' report "Falha reset" severity note;
 
-        rst_tb <= '0';
+        rst_tb <= '1';
         wait for PERIOD * 64;
 
-        assert count_end = '1' report "Falha na contagem" severity note;
+        assert count_end_tb = '1' report "Falha na contagem" severity note;
         
         wait;
     end process;
