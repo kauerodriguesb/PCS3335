@@ -7,11 +7,11 @@
 
 library IEEE;
 use IEEE.numeric_bit.all;
---use IEEE.numeric_std.all;
 
 entity contador is
-    Port (rst, clk  : in bit;
-          count_end : out bit
+    Port (
+        rst, clk  : in bit;
+        count_end : out bit
     );
 end contador;
 
