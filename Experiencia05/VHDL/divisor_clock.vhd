@@ -9,9 +9,11 @@ library IEEE;
 use IEEE.numeric_bit.all;
 
 entity divisor_clock is
-    Port ( clk_in : in  bit;
-           rst    : in  bit;
-           clk_out : out  bit);
+    port ( 
+        clk_in  : in  bit;
+        rst     : in  bit;
+        clk_out : out  bit
+    );
 end divisor_clock;
 
 architecture arch_div of divisor_clock is
