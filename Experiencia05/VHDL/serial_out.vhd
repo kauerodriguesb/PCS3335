@@ -25,13 +25,12 @@ entity serial_out is
 end serial_out;
 
 architecture arch_serial of serial_out is
-    signal done, rst                          : bit := '0';
-    signal intern                             : bit_vector(WIDTH-1 downto 0);
-    signal start_bit, serial_intern, stop_bit : bit := '0';
+    signal done                         : bit := '0';
+    signal parity_s, data_reg           : bit_vector(WIDTH-1 downto 0);
+    signal serial_intern: bit := '0';
     signal count, stop_count: natural := 0;
 
-    type estados is (ready, send_data_true, send_data_false, send_parity_bit_odd,
-                     send_parity_bit_even, send_stop_true, send_stop_false);
+    type estados is (ready, send_data, send_parity, send_stop_bits, done_st);
     signal estado : estados := ready;
 begin
     
@@ -40,149 +39,64 @@ begin
     --intern    <= data when POLARITY = TRUE else not data;
     --stop_bit  <= '1' when POLARITY = TRUE else '0';
 
-    intern <= data;
-    rst <= reset;
+	 
+	 parity_s(0) <= data_reg(0);
+	 PARIDADE: for i in 1 to WIDTH-1 generate
+			parity_s(i) <= parity_s(i-1) xor data_reg(i);
+	 end generate PARIDADE;
 
     TRANSMISSION:
     process(clock, reset, tx_go)
-        variable paridade : bit := '0';
     begin
-        if rising_edge(clock) then
+		  if reset = '1' then
+				serial_intern <= '1'; 
+				estado <= ready;
+        elsif rising_edge(clock) then
+		  
             case (estado) is 
-                when ready =>
-                    if rst = '1' then
-                        serial_intern <= '1'; --Verificar depois
-                        estado <= ready;
-                    end if;
-
-                    if POLARITY = TRUE then
-                        serial_intern <= '1';
-                    elsif POLARITY = FALSE then
-                        serial_intern <= '0';
-                    end if;
-
+                when ready =>						  
                     if tx_go = '0' then
                         estado <= ready;
                     elsif tx_go = '1' then
+								serial_intern <= '0';
+								data_reg <= data;
                         done <= '0';
-                        if POLARITY = TRUE then
-                            serial_intern <= '0';
-                            estado <= send_data_true;
-                        elsif POLARITY = FALSE then
-                            serial_intern <= '1';
-                            estado <= send_data_false;
-                        end if;
+                        estado <= send_data;
                     end if;
 
-                when send_data_true =>
-                    if rst = '1' then
-                        serial_intern <= '1';
-                        count <= 0;
-                        estado <= ready;
-                    end if;
-
-                    serial_intern <= intern(count);
+                when send_data =>
+                    serial_intern <= data_reg(count);
                     count <= count + 1;
                     if count < WIDTH-1 then 
-                        estado <= send_data_true;
-                    elsif PARITY = 1 then
-                        count <= 0;
-                        estado <= send_parity_bit_odd;
-                    elsif PARITY = 0 then
-                        count <= 0;
-                        estado <= send_parity_bit_even;
+                        estado <= send_data;
+                    else 
+								estado <= send_parity;
                     end if;
-                
-                when send_data_false => 
-                    if rst = '1' then
-                        serial_intern <= '0';
-                        count <= 0;
-                        estado <= ready;
-                    end if;
-
-                    serial_intern <= not intern(count);
-                    count <= count + 1;
-                    if count < WIDTH-1 then 
-                        estado <= send_data_false;
-                    elsif PARITY = 1 then
-                        count <= 0;
-                        estado <= send_parity_bit_odd;
-                    elsif PARITY = 0 then
-                        count <= 0;
-                        estado <= send_parity_bit_even;
-                    end if;
-
-                when send_parity_bit_odd =>
-                    if rst = '1' then
-                        serial_intern <= '1'; -- Verificar true e false
-                        count <= 0;
-                        estado <= ready;
-                    end if;
-
-                    for i in intern'range loop
-                        paridade := paridade xor intern(i);
-                    end loop;
-
-                    serial_intern <= not paridade;
-                    estado <= send_stop_true;
-                    
-                
-                when send_parity_bit_even =>
-                    if rst = '1' then
-                        serial_intern <= '1'; -- Verificar true e false
-                        count <= 0;
-                        estado <= ready;
-                    end if;
-
-                    for i in intern'range loop
-                        paridade := paridade xor intern(i);
-                    end loop;
-
-                    serial_intern <= paridade;   
-                    estado <= send_stop_true;
-               
-                
-                when send_stop_true =>
-                    if rst = '1' then
-                        serial_intern <= '1'; -- Verificar true e false
-                        count <= 0;
-                        estado <= ready;
-                    end if;
-
-                    paridade := '0';
+						  
+					 when send_parity  =>
+						  count <= 0;
+                    serial_intern <= not parity_s(WIDTH-1);
+                    estado <= send_stop_bits;
+						  
+					 when send_stop_bits =>
                     serial_intern <= '1';
-                    stop_count <= stop_count + 1;
-                    if stop_count < STOP_BITS-1 then
-                        estado <= send_stop_true;
-                    else 
-                        stop_count <= 0;
-                        done <= '1';
-                        estado <= ready;
-                    end if;
-
-                when send_stop_false =>
-                    if rst = '1' then
-                        serial_intern <= '0'; -- Verificar true e false
-                        count <= 0;
-                        estado <= ready;
-                    end if;
-
-                    paridade := '0';
-                    serial_intern <= '0';
-                    stop_count <= stop_count + 1;
-                    if stop_count < STOP_BITS-1 then
-                        estado <= send_stop_true;
-                    else 
-                        stop_count <= 0;
-                        done <= '1';
-                        estado <= ready;
-                    end if;
-
+						  stop_count <= stop_count + 1;
+                    if stop_count < STOP_BITS-1 then 
+								estado <= send_stop_bits;
+						  else 
+								stop_count <= 0;
+								done <= '1';
+								estado <= done_st;
+						  end if;
+					
+					 when done_st =>                   
+						  estado <= ready; 
+                
             end case;
         end if;
     end process;
 
-    serial_o <= serial_intern;
+    serial_o <= serial_intern when POLARITY = TRUE else not serial_intern;
     tx_done    <= done;
 end arch_serial;
 --

@@ -1,0 +1,11 @@
+Relatório: 
+
+Primeiramente, criamos um projeto do Quartus do zero e definimos o modelo da placa. Adicionamos depois os arquivos VHDL das experiência 2 e 3, ou seja, os arquivos das funções e do módulo stepfun. Assim, adicionamos o arquivo VHDL enviado ao judge nessa experiência 4, juntamente com os arquivos adicionais como o contador. Como o contador estava em um arquivo separado, definimos tal arquivo como a entidade top.
+
+Depois, focamos em formatar e melhorar nosso módulo multisteps. Verificamos todo o módulo e percebemos que a ideia/lógica do código multisteps estava toda certa, exceto a definição do kpw. Depois de analisar, achamos um problema com a função process do contador e percebemos uma dificuldade em definir o vetor W para o cálculo do kpw. 
+
+O erro no contador era a soma de 1 a cada subida de borda do clock, mas ao atingir a contagem 64 resetava imediatamente o contador, sendo assim teoricamente impossível atingir o valor 64 por estar na mesma borda do clock. Ajustamos o código ao mudar a posição de uma das linhas do contador e ao verificarmos o acerto com o Felipe, prosseguimos.
+
+Depois, focamos em definir o vetor W. Tal vetor estava definido dentro da arquitetura do multisteps, então para o aperfeiçoar criamos um arquivo VHDL separado somente para o cálculo do kpw devido à sua complexidade. Além disso, mudamos a lógica de definição do vetor W. Inicialmente criamos o W com 64 posições para puxar cada bit vector correspondente, mas não havíamos o conectado com a contagem de ciclos e estava ocupando muito espaço da memória, ou seja, não estavam seguindo o tempo da borda do clock. Assim, tentamos transformar o vetor W em um de 16 posições, substituindo os valores a cada 16 ciclos. Entretanto, não obtivemos sucesso na lógica vinculada ao clock e a contagem de ciclos e decidimos encerrar a experiência pela falta de tempo. 
+
+Finalmente, escrevemos o relatório, mas estamos empenhados em conseguir acertar e terminar tal módulo, pois usaremos nas experiências futuras.

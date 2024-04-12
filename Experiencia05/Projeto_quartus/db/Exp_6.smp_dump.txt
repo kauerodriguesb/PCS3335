@@ -1,0 +1,8 @@
+
+State Machine - |experiencia_05|serial_out:TX|estado
+Name estado.done_st estado.send_stop_bits estado.send_parity estado.send_data estado.ready 
+estado.ready 0 0 0 0 0 
+estado.send_data 0 0 0 1 1 
+estado.send_parity 0 0 1 0 1 
+estado.send_stop_bits 0 1 0 0 1 
+estado.done_st 1 0 0 0 1 

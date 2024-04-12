@@ -1,0 +1,101 @@
+------------------------------------------------------------
+Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1100mV 85C Model Setup 'clk'
+Slack : -4.422
+TNS   : -36.248
+
+Type  : Slow 1100mV 85C Model Setup 'divisor_clock:DIVISAO_CLOCK|internal'
+Slack : -3.029
+TNS   : -96.369
+
+Type  : Slow 1100mV 85C Model Hold 'clk'
+Slack : 0.451
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Hold 'divisor_clock:DIVISAO_CLOCK|internal'
+Slack : 0.518
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'divisor_clock:DIVISAO_CLOCK|internal'
+Slack : -0.538
+TNS   : -37.292
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'clk'
+Slack : -0.538
+TNS   : -14.040
+
+Type  : Slow 1100mV 0C Model Setup 'clk'
+Slack : -4.585
+TNS   : -36.222
+
+Type  : Slow 1100mV 0C Model Setup 'divisor_clock:DIVISAO_CLOCK|internal'
+Slack : -3.088
+TNS   : -95.793
+
+Type  : Slow 1100mV 0C Model Hold 'clk'
+Slack : 0.458
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Hold 'divisor_clock:DIVISAO_CLOCK|internal'
+Slack : 0.553
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'divisor_clock:DIVISAO_CLOCK|internal'
+Slack : -0.538
+TNS   : -37.029
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'clk'
+Slack : -0.538
+TNS   : -14.439
+
+Type  : Fast 1100mV 85C Model Setup 'clk'
+Slack : -3.088
+TNS   : -10.131
+
+Type  : Fast 1100mV 85C Model Setup 'divisor_clock:DIVISAO_CLOCK|internal'
+Slack : -1.222
+TNS   : -34.745
+
+Type  : Fast 1100mV 85C Model Hold 'divisor_clock:DIVISAO_CLOCK|internal'
+Slack : 0.162
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Hold 'clk'
+Slack : 0.203
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'clk'
+Slack : -0.404
+TNS   : -2.031
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'divisor_clock:DIVISAO_CLOCK|internal'
+Slack : -0.016
+TNS   : -0.171
+
+Type  : Fast 1100mV 0C Model Setup 'clk'
+Slack : -2.554
+TNS   : -8.006
+
+Type  : Fast 1100mV 0C Model Setup 'divisor_clock:DIVISAO_CLOCK|internal'
+Slack : -1.036
+TNS   : -29.361
+
+Type  : Fast 1100mV 0C Model Hold 'divisor_clock:DIVISAO_CLOCK|internal'
+Slack : 0.147
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Hold 'clk'
+Slack : 0.191
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'clk'
+Slack : -0.377
+TNS   : -2.010
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'divisor_clock:DIVISAO_CLOCK|internal'
+Slack : 0.023
+TNS   : 0.000
+
+------------------------------------------------------------
