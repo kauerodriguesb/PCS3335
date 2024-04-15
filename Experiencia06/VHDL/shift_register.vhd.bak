@@ -2,56 +2,69 @@
 -- Author: Kauê Rodrigues Barbosa (kaue.rodrigueskrb@usp.br)
 -- Module Name: serial_out
 -- Description:
--- Sends 8 bits via serial port to a computer
+-- Recieves 8 bits via serial port from computer and displays it at 7 digits 
+-- display.
 -------------------------------------------------------------------------------
 
 library IEEE;
 use IEEE.numeric_bit.all;
 
-entity serial_out is
+entity serial_in is
     generic( 
         POLARITY  : boolean := TRUE;
-        WIDTH     : natural := 7;
+        WIDTH     : natural := 8;
         PARITY    : natural := 1;
-        STOP_BITS : natural := 1
+        CLOCK_MUL : natural := 4
     );
 
     port( 
-        clock, reset, tx_go  : in  bit;
-        tx_done              : out  bit;
-        data                 : in bit_vector(WIDTH-1 downto 0);    
-        serial_o : out  bit
+        clock, reset, start, serial_data : in  bit;
+        done, parity_bit                 : out  bit;
+        parallel_data                    : out bit_vector(WIDTH-1 downto 0)
     );
-end serial_out;
+end serial_in;
 
-architecture arch_serial of serial_out is
-    signal done                         : bit := '0';
-    signal parity_s, data_reg           : bit_vector(WIDTH-1 downto 0);
-    signal serial_intern: bit := '0';
-    signal count, stop_count: natural := 0;
+architecture arch_serial of serial_in is
+    --signal done                         : bit := '0';
+    --signal parity_s, data_reg           : bit_vector(WIDTH-1 downto 0);
+    --signal serial_intern: bit := '0';
+    --signal count, stop_count: natural := 0;
 
-    type estados is (ready, send_data, send_parity, send_stop_bits, done_st);
+    type estados is (idle, wait_start_bit, receive_data, receive_parity, receive_stop_bits, done_st);
     signal estado : estados := ready;
 begin
-    
-    -- Verificação da polariadade
-    --start_bit <= '0' when POLARITY = TRUE else '1';
-    --intern    <= data when POLARITY = TRUE else not data;
-    --stop_bit  <= '1' when POLARITY = TRUE else '0';
-
 	 
-	 parity_s(0) <= data_reg(0);
-	 PARIDADE: for i in 1 to WIDTH-1 generate
-			parity_s(i) <= parity_s(i-1) xor data_reg(i);
-	 end generate PARIDADE;
+	 --parity_s(0) <= data_reg(0);
+	 --PARIDADE: for i in 1 to WIDTH-1 generate
+	 --		parity_s(i) <= parity_s(i-1) xor data_reg(i);
+	 --end generate PARIDADE;
 
     TRANSMISSION:
     process(clock, reset, tx_go)
     begin
 		  if reset = '1' then
-				serial_intern <= '1'; 
-				estado <= ready;
+				--serial_intern <= '1'; 
+				estado <= idle;
         elsif rising_edge(clock) then
+		  
+				case (estado) is
+					when idle => 
+						estado <= wait_start_bit;
+					
+					when wait_start_bit => 
+						if start = '1' then
+							estado <= wait_start_bit;
+						end if;
+					
+					when receive_data => ;
+					
+					when receive_parity => ;
+					
+					when receive_stop_bits => ;
+					
+					when done_st => ;
+				
+				end case;
 		  
             case (estado) is 
                 when ready =>						  

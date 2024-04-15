@@ -1,0 +1,23 @@
+Quartus Prime Archive log --	C:/Users/Operador/Documents/Temp/PCS3335/Experiencia05/Projeto_quartus/Exp_6_tmp_archive.qarlog
+
+Archive:	C:/Users/Operador/Documents/Temp/PCS3335/Experiencia05/Projeto_quartus/Exp_6_tmp_archive.qar
+Date:		Mon Apr 15 09:18:55 2024
+Quartus Prime		20.1.1 Build 720 11/11/2020 SJ Lite Edition
+
+	=========== Files Selected: ===========
+C:/Users/Operador/Documents/Temp/PCS3335/Experiencia05/Projeto_quartus/Exp_6.qpf
+C:/Users/Operador/Documents/Temp/PCS3335/Experiencia05/Projeto_quartus/serial_out.qsf
+C:/Users/Operador/Documents/Temp/PCS3335/Experiencia05/VHDL/divisor_clock.vhd
+C:/Users/Operador/Documents/Temp/PCS3335/Experiencia05/VHDL/serial_out.vhd
+C:/Users/Operador/Documents/Temp/PCS3335/Experiencia05/VHDL/tx_tb.vhd
+c:/intelfpga_lite/20.1/quartus/bin64/assignment_defaults.qdf
+	======= Total: 6 files to archive =======
+
+	================ Status: ===============
+All files archived successfully.
+
+
+******* Archived project restoration attempt on Mon Apr 15 09:18:57 2024
+Source archive file:	C:/Users/Operador/Documents/Temp/PCS3335/Experiencia05/Projeto_quartus/Exp_6_tmp_archive.qar
+Archive was extracted into	C:/Users/Operador/Documents/Temp/PCS3335/Experiencia06/Projeto_quartus/
+		 - successfully.
