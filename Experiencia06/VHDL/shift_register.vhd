@@ -14,7 +14,7 @@ entity shift_register is
     );
 
     port( 
-        clock, reset, serial_in  : in  bit;
+        clock, reset, serial_in, enable  : in  bit;
         data_out   : out bit_vector(WIDTH-1 downto 0) 
     );
 end shift_register;
@@ -27,7 +27,7 @@ begin
 		if (reset = '1') then
 			data <= (others => '0');
 		else 
-			if (rising_edge(clock)) then				
+			if (rising_edge(clock) and enable = '1') then				
 				for i in 1 to WIDTH-1 loop
 					data(i) <= data(i-1);
 				end for;
