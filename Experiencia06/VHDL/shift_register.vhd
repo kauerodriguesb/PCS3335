@@ -20,7 +20,7 @@ entity shift_register is
 end shift_register;
 
 architecture arch_shift of shift_register is
-    data : bit_vector(WIDTH-1 downto 0);
+    signal data : bit_vector(WIDTH-1 downto 0);
 begin
 	 process(clock, reset)
 	 begin
@@ -30,7 +30,7 @@ begin
 			if (rising_edge(clock) and enable = '1') then				
 				for i in 1 to WIDTH-1 loop
 					data(i) <= data(i-1);
-				end for;
+				end loop;
 			end if;
 		end if;
 	 end process;

@@ -21,7 +21,7 @@ entity shift_register is
 end shift_register;
 
 architecture arch_shift of shift_register is
-    data : bit_vector(WIDTH-1 downto 0);
+    signal data : bit_vector(WIDTH-1 downto 0);
 begin
 	 process(clock, reset)
 	 begin
@@ -31,13 +31,16 @@ begin
 			if (rising_edge(clock) and enable = '1') then				
 				for i in 1 to WIDTH-1 loop
 					data(i) <= data(i-1);
-				end for;
+				end loop;
 			end if;
 		end if;
 	 end process;
 	 
 	 data_out <= data;
 end arch_shift;
+
+library IEEE;
+use IEEE.numeric_bit.all;
 
 entity serial_in is
     generic( 
@@ -66,7 +69,7 @@ architecture arch_serial of serial_in is
         );
     
         port( 
-            clock, reset, serial_in  : in  bit;
+            clock, reset, serial_in, enable  : in  bit;
             data_out   : out bit_vector(WIDTH-1 downto 0) 
         );
     end component;
@@ -77,19 +80,19 @@ architecture arch_serial of serial_in is
 
     constant DATA_WIDTH : natural := WIDTH + 2 + 1;
 
-    type estados is (idle, wait_start_bit, receive_data, receive_parity, receive_stop_bits, done_st);
-    signal estado : estados := ready;
+    type estados is (idle, wait_start_bit, receive_data, done_st);
+    signal estado : estados := idle;
 begin
 	 
     DATA_STORAGE: shift_register generic map(DATA_WIDTH) --Stores data, parity bit and stop bits (2)
     port map(clock, reset, serial_data, enable_storage, parallel_intern);   
 
     TRANSMISSION:
-    process(clock, reset, tx_go)
+    process(clock, reset, start)
     begin
 		if reset = '1' then
             done <= '0';
-			serial_intern <= '1'; 
+			parallel_intern <= (others => '1'); 
 			estado <= idle;
         elsif rising_edge(clock) then
 			case (estado) is
@@ -128,6 +131,4 @@ begin
 
     parity_bit <= parallel_intern(WIDTH);
 
-    --serial_o <= serial_intern when POLARITY = TRUE else not serial_intern;
-    --tx_done    <= done;
 end arch_serial;
