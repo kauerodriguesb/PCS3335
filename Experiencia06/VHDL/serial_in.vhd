@@ -9,6 +9,36 @@
 library IEEE;
 use IEEE.numeric_bit.all;
 
+entity shift_register is
+    generic( 
+        WIDTH     : natural := 8
+    );
+
+    port( 
+        clock, reset, serial_in, enable  : in  bit;
+        data_out   : out bit_vector(WIDTH-1 downto 0) 
+    );
+end shift_register;
+
+architecture arch_shift of shift_register is
+    data : bit_vector(WIDTH-1 downto 0);
+begin
+	 process(clock, reset)
+	 begin
+		if (reset = '1') then
+			data <= (others => '0');
+		else 
+			if (rising_edge(clock) and enable = '1') then				
+				for i in 1 to WIDTH-1 loop
+					data(i) <= data(i-1);
+				end for;
+			end if;
+		end if;
+	 end process;
+	 
+	 data_out <= data;
+end arch_shift;
+
 entity serial_in is
     generic( 
         POLARITY  : boolean := TRUE;
@@ -18,7 +48,7 @@ entity serial_in is
     );
 
     port( 
-        clock, reset, start, serial_data : in  bit;
+        clock, reset, start, serial_data : in  bit; -- clock ja reduzido da fpga
         done, parity_bit                 : out  bit;
         parallel_data                    : out bit_vector(WIDTH-1 downto 0)
     );
@@ -30,85 +60,74 @@ architecture arch_serial of serial_in is
     --signal serial_intern: bit := '0';
     --signal count, stop_count: natural := 0;
 
+    component shift_register is
+        generic( 
+            WIDTH     : natural := 8
+        );
+    
+        port( 
+            clock, reset, serial_in  : in  bit;
+            data_out   : out bit_vector(WIDTH-1 downto 0) 
+        );
+    end component;
+
+    signal clk_intern, enable_storage : bit;
+    signal receive_count : natural := 0;
+    signal parallel_intern : bit_vector(WIDTH-1 downto 0);
+
+    constant DATA_WIDTH : natural := WIDTH + 2 + 1;
+
     type estados is (idle, wait_start_bit, receive_data, receive_parity, receive_stop_bits, done_st);
     signal estado : estados := ready;
 begin
 	 
-	 --parity_s(0) <= data_reg(0);
-	 --PARIDADE: for i in 1 to WIDTH-1 generate
-	 --		parity_s(i) <= parity_s(i-1) xor data_reg(i);
-	 --end generate PARIDADE;
+    DATA_STORAGE: shift_register generic map(DATA_WIDTH) --Stores data, parity bit and stop bits (2)
+    port map(clock, reset, serial_data, enable_storage, parallel_intern);   
 
     TRANSMISSION:
     process(clock, reset, tx_go)
     begin
-		  if reset = '1' then
-				--serial_intern <= '1'; 
-				estado <= idle;
+		if reset = '1' then
+            done <= '0';
+			serial_intern <= '1'; 
+			estado <= idle;
         elsif rising_edge(clock) then
-		  
-				case (estado) is
-					when idle => 
-						estado <= wait_start_bit;
-					
-					when wait_start_bit => 
-						if start = '1' then
-							estado <= wait_start_bit;
-						end if;
-					
-					when receive_data => ;
-					
-					when receive_parity => ;
-					
-					when receive_stop_bits => ;
-					
-					when done_st => ;
+			case (estado) is
+				when idle => 
+					estado <= wait_start_bit;
 				
-				end case;
-		  
-            case (estado) is 
-                when ready =>						  
-                    if tx_go = '0' then
-                        estado <= ready;
-                    elsif tx_go = '1' then
-								serial_intern <= '0';
-								data_reg <= data;
+				when wait_start_bit => 
+					if start = '1' then
+						estado <= wait_start_bit;
+                    elsif start = '0' then
                         done <= '0';
-                        estado <= send_data;
+                        estado <= receive_data;
                     end if;
-
-                when send_data =>
-                    serial_intern <= data_reg(count);
-                    count <= count + 1;
-                    if count < WIDTH-1 then 
-                        estado <= send_data;
+				
+				when receive_data => 
+                    receive_count <= receive_count + 1;
+                    enable_storage <= '1';
+                    if (receive_count < DATA_WIDTH-1) then -- Nao recebi todos os bits ainda
+                        estado <= receive_data;
                     else 
-								estado <= send_parity;
+                        enable_storage <= '0'; 
+                        receive_count <= 0;
+                        estado <= done_st;
                     end if;
-						  
-					 when send_parity  =>
-						  count <= 0;
-                    serial_intern <= not parity_s(WIDTH-1);
-                    estado <= send_stop_bits;
-						  
-					 when send_stop_bits =>
-                    serial_intern <= '1';
-						  stop_count <= stop_count + 1;
-                    if stop_count < STOP_BITS-1 then 
-								estado <= send_stop_bits;
-						  else 
-								stop_count <= 0;
-								done <= '1';
-								estado <= done_st;
-						  end if;
-					
-					 when done_st =>                   
-						  estado <= ready; 
-                
-            end case;
+				
+				when done_st => 
+                    done <= '1';
+                    estado <= idle;
+
+			end case;
         end if;
     end process;
 
-    serial_o <= serial_intern when POLARITY = TRUE else not serial_intern;
-    tx_done    <= done;
+    parallel_data <= parallel_intern(WIDTH-1 downto 0) when POLARITY = TRUE else
+                     not parallel_intern(WIDTH-1 downto 0);
+
+    parity_bit <= parallel_intern(WIDTH);
+
+    --serial_o <= serial_intern when POLARITY = TRUE else not serial_intern;
+    --tx_done    <= done;
 end arch_serial;
