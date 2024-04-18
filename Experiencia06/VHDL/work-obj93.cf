@@ -1,0 +1,6 @@
+v 4
+file . "serial_in.vhd" "1bb4bb01c299db2e1eee0580c54f266bd02a9859" "20240418172818.725":
+  entity shift_register at 9( 355) + 0 on 11;
+  architecture arch_shift of shift_register at 23( 622) + 0 on 12;
+  entity serial_in at 42( 1014) + 0 on 13;
+  architecture arch_serial of serial_in at 60( 1479) + 0 on 14;
