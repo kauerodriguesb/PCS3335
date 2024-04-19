@@ -1,0 +1,134 @@
+m255
+K4
+z2
+!s11e vcom 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/Users/Operador/Downloads/TESTE-PROVA
+Edivisor_clock
+Z0 w1712946598
+Z1 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z2 DPx4 ieee 11 numeric_bit 0 22 G2;d`f^X6V]cQEn8_38:i1
+!i122 30
+Z3 dC:/Users/Operador/Downloads/PCS3335-main/Experiencia05/VHDL
+Z4 8C:/Users/Operador/Downloads/PCS3335-main/Experiencia05/VHDL/divisor_clock.vhd
+Z5 FC:/Users/Operador/Downloads/PCS3335-main/Experiencia05/VHDL/divisor_clock.vhd
+l0
+Z6 L11 1
+VJPL^JB2dA7MB3=j5UTeW<3
+!s100 VZI>NTzbJaA>F<ho921LU0
+Z7 OV;C;2020.1;71
+31
+Z8 !s110 1712951309
+!i10b 1
+Z9 !s108 1712951309.000000
+Z10 !s90 -reportprogress|300|-work|work|-93|-explicit|-stats=none|C:/Users/Operador/Downloads/PCS3335-main/Experiencia05/VHDL/divisor_clock.vhd|
+Z11 !s107 C:/Users/Operador/Downloads/PCS3335-main/Experiencia05/VHDL/divisor_clock.vhd|
+!i113 1
+Z12 o-work work -93 -explicit
+Z13 tExplicit 1 CvgOpt 0
+Aarch_div
+R1
+R2
+DEx4 work 13 divisor_clock 0 22 JPL^JB2dA7MB3=j5UTeW<3
+!i122 30
+l27
+L19 26
+VeJM_52i0:A19_MD67NkfN1
+!s100 5_fi@:20ACVWh>=CZkM_83
+R7
+31
+R8
+!i10b 1
+R9
+R10
+R11
+!i113 1
+R12
+R13
+Eserial_out
+Z14 w1712951302
+R1
+R2
+!i122 31
+R3
+Z15 8C:/Users/Operador/Downloads/PCS3335-main/Experiencia05/VHDL/serial_out.vhd
+Z16 FC:/Users/Operador/Downloads/PCS3335-main/Experiencia05/VHDL/serial_out.vhd
+l0
+R6
+VgI6?NdI?BlTT617@18D^P2
+!s100 oNmXBCL]<YU^G2dWUNZ5W0
+R7
+31
+R8
+!i10b 1
+R9
+Z17 !s90 -reportprogress|300|-work|work|-93|-explicit|-stats=none|C:/Users/Operador/Downloads/PCS3335-main/Experiencia05/VHDL/serial_out.vhd|
+Z18 !s107 C:/Users/Operador/Downloads/PCS3335-main/Experiencia05/VHDL/serial_out.vhd|
+!i113 1
+R12
+R13
+Aarch_serial
+R1
+R2
+DEx4 work 10 serial_out 0 22 gI6?NdI?BlTT617@18D^P2
+!i122 31
+l35
+L27 75
+VGKWO^Oadk_hc0@;Zi8A5[1
+!s100 kC[ZNE@nTKX^>=zjG`3bd2
+R7
+31
+R8
+!i10b 1
+R9
+R17
+R18
+!i113 1
+R12
+R13
+Eserial_out_tb
+Z19 w1712937236
+R1
+R2
+!i122 32
+R3
+Z20 8C:/Users/Operador/Downloads/PCS3335-main/Experiencia05/VHDL/tx_tb.vhd
+Z21 FC:/Users/Operador/Downloads/PCS3335-main/Experiencia05/VHDL/tx_tb.vhd
+l0
+L4 1
+VGClXM_ZA6QGnJ>DEaLCk72
+!s100 D=SUXoDF>S;DAe1mn3?XS1
+R7
+31
+Z22 !s110 1712951311
+!i10b 1
+Z23 !s108 1712951311.000000
+Z24 !s90 -reportprogress|300|-work|work|-93|-explicit|-stats=none|C:/Users/Operador/Downloads/PCS3335-main/Experiencia05/VHDL/tx_tb.vhd|
+Z25 !s107 C:/Users/Operador/Downloads/PCS3335-main/Experiencia05/VHDL/tx_tb.vhd|
+!i113 1
+R12
+R13
+Abehavior
+R1
+R2
+Z26 DEx4 work 13 serial_out_tb 0 22 GClXM_ZA6QGnJ>DEaLCk72
+!i122 32
+l58
+Z27 L7 237
+Z28 VOX337YI?c^H1OiHn5:[Em0
+Z29 !s100 `K]b4nR6n8D`5cCT4OzMH0
+R7
+31
+R22
+!i10b 1
+R23
+R24
+R25
+!i113 1
+R12
+R13

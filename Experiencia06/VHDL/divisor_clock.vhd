@@ -21,7 +21,7 @@ architecture arch_div of divisor_clock is
     -- 2604 ciclos de clock na entrada gera 1 ciclo de clock na saída.
 	 -- O valor de ciclos é quebrado, então peguei o chão
 
-    constant MAX_COUNT : integer := 1032-1;     -- Conto até 2064/2 - 1, para manter duty cicle de 50%
+    constant MAX_COUNT : integer := 1302-1;     -- Conto até 2604/2 - 1, para manter duty cicle de 50%
     
     signal count : integer range 0 to MAX_COUNT := 0;
     signal internal : bit := '0';
