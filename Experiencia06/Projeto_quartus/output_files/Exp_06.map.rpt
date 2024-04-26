@@ -1,5 +1,5 @@
-Analysis & Elaboration report for Exp_06
-Mon Apr 15 10:04:34 2024
+Analysis & Synthesis report for Exp_06
+Fri Apr 19 17:26:35 2024
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -7,10 +7,20 @@ Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 ; Table of Contents ;
 ---------------------
   1. Legal Notice
-  2. Analysis & Elaboration Summary
-  3. Parallel Compilation
-  4. Analysis & Elaboration Settings
-  5. Analysis & Elaboration Messages
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |experiencia_06|serial_in:RECEPCAO|estado
+  9. General Register Statistics
+ 10. Parameter Settings for User Entity Instance: serial_in:RECEPCAO
+ 11. Parameter Settings for User Entity Instance: serial_in:RECEPCAO|shift_register:DATA_STORAGE
+ 12. Port Connectivity Checks: "serial_in:RECEPCAO|shift_register:DATA_STORAGE"
+ 13. Post-Synthesis Netlist Statistics for Top Partition
+ 14. Elapsed Time Per Partition
+ 15. Analysis & Synthesis Messages
 
 
 
@@ -34,47 +44,36 @@ https://fpgasoftware.intel.com/eula.
 
 
 
-+-----------------------------------------------------------------------------+
-; Analysis & Elaboration Summary                                              ;
-+-------------------------------+---------------------------------------------+
-; Analysis & Elaboration Status ; Failed - Mon Apr 15 10:04:34 2024           ;
-; Quartus Prime Version         ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
-; Revision Name                 ; Exp_06                                      ;
-; Top-level Entity Name         ; Exp_06                                      ;
-; Family                        ; Cyclone V                                   ;
-; Logic utilization (in ALMs)   ; N/A until Partition Merge                   ;
-; Total registers               ; N/A until Partition Merge                   ;
-; Total pins                    ; N/A until Partition Merge                   ;
-; Total virtual pins            ; N/A until Partition Merge                   ;
-; Total block memory bits       ; N/A until Partition Merge                   ;
-; Total PLLs                    ; N/A until Partition Merge                   ;
-; Total DLLs                    ; N/A until Partition Merge                   ;
-+-------------------------------+---------------------------------------------+
-
-
-+------------------------------------------+
-; Parallel Compilation                     ;
-+----------------------------+-------------+
-; Processors                 ; Number      ;
-+----------------------------+-------------+
-; Number detected on machine ; 8           ;
-; Maximum allowed            ; 4           ;
-;                            ;             ;
-; Average used               ; 1.00        ;
-; Maximum used               ; 1           ;
-;                            ;             ;
-; Usage by Processor         ; % Time Used ;
-;     Processor 1            ; 100.0%      ;
-+----------------------------+-------------+
++-------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                  ;
++---------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status     ; Successful - Fri Apr 19 17:26:35 2024       ;
+; Quartus Prime Version           ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
+; Revision Name                   ; Exp_06                                      ;
+; Top-level Entity Name           ; experiencia_06                              ;
+; Family                          ; Cyclone V                                   ;
+; Logic utilization (in ALMs)     ; N/A                                         ;
+; Total registers                 ; 59                                          ;
+; Total pins                      ; 28                                          ;
+; Total virtual pins              ; 0                                           ;
+; Total block memory bits         ; 0                                           ;
+; Total DSP Blocks                ; 0                                           ;
+; Total HSSI RX PCSs              ; 0                                           ;
+; Total HSSI PMA RX Deserializers ; 0                                           ;
+; Total HSSI TX PCSs              ; 0                                           ;
+; Total HSSI PMA TX Serializers   ; 0                                           ;
+; Total PLLs                      ; 0                                           ;
+; Total DLLs                      ; 0                                           ;
++---------------------------------+---------------------------------------------+
 
 
 +---------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Elaboration Settings                                                                                           ;
+; Analysis & Synthesis Settings                                                                                             ;
 +---------------------------------------------------------------------------------+--------------------+--------------------+
 ; Option                                                                          ; Setting            ; Default Value      ;
 +---------------------------------------------------------------------------------+--------------------+--------------------+
-; Device                                                                          ; 5CEBA5U19C7        ;                    ;
-; Top-level entity name                                                           ; Exp_06             ; Exp_06             ;
+; Device                                                                          ; 5CEBA4F23C7        ;                    ;
+; Top-level entity name                                                           ; experiencia_06     ; Exp_06             ;
 ; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
 ; Use smart compilation                                                           ; Off                ; Off                ;
 ; Enable parallel Assembler and Timing Analyzer during compilation                ; On                 ; On                 ;
@@ -155,27 +154,230 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------------------------------------------+--------------------+--------------------+
 
 
-+---------------------------------+
-; Analysis & Elaboration Messages ;
-+---------------------------------+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 4           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processors 2-4         ;   0.0%      ;
++----------------------------+-------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                          ;
++----------------------------------+-----------------+-----------------+--------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                   ; Library ;
++----------------------------------+-----------------+-----------------+--------------------------------------------------------------------------------+---------+
+; ../VHDL/hex2seg.vhd              ; yes             ; User VHDL File  ; C:/Users/Operador/Documents/Temp/PCS3335/Experiencia06/VHDL/hex2seg.vhd        ;         ;
+; ../VHDL/experiencia_06.vhd       ; yes             ; User VHDL File  ; C:/Users/Operador/Documents/Temp/PCS3335/Experiencia06/VHDL/experiencia_06.vhd ;         ;
+; ../VHDL/serial_in.vhd            ; yes             ; User VHDL File  ; C:/Users/Operador/Documents/Temp/PCS3335/Experiencia06/VHDL/serial_in.vhd      ;         ;
+; ../VHDL/shift_register.vhd       ; yes             ; User VHDL File  ; C:/Users/Operador/Documents/Temp/PCS3335/Experiencia06/VHDL/shift_register.vhd ;         ;
+; ../VHDL/divisor_clock.vhd        ; yes             ; User VHDL File  ; C:/Users/Operador/Documents/Temp/PCS3335/Experiencia06/VHDL/divisor_clock.vhd  ;         ;
++----------------------------------+-----------------+-----------------+--------------------------------------------------------------------------------+---------+
+
+
++------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                                        ;
++---------------------------------------------+--------------------------------------+
+; Resource                                    ; Usage                                ;
++---------------------------------------------+--------------------------------------+
+; Estimate of Logic utilization (ALMs needed) ; 51                                   ;
+;                                             ;                                      ;
+; Combinational ALUT usage for logic          ; 86                                   ;
+;     -- 7 input functions                    ; 0                                    ;
+;     -- 6 input functions                    ; 15                                   ;
+;     -- 5 input functions                    ; 3                                    ;
+;     -- 4 input functions                    ; 20                                   ;
+;     -- <=3 input functions                  ; 48                                   ;
+;                                             ;                                      ;
+; Dedicated logic registers                   ; 59                                   ;
+;                                             ;                                      ;
+; I/O pins                                    ; 28                                   ;
+;                                             ;                                      ;
+; Total DSP Blocks                            ; 0                                    ;
+;                                             ;                                      ;
+; Maximum fan-out node                        ; divisor_clock:DIVISAO_CLOCK|internal ;
+; Maximum fan-out                             ; 48                                   ;
+; Total fan-out                               ; 542                                  ;
+; Average fan-out                             ; 2.70                                 ;
++---------------------------------------------+--------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                     ;
++----------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------------------+----------------+--------------+
+; Compilation Hierarchy Node       ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                         ; Entity Name    ; Library Name ;
++----------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------------------+----------------+--------------+
+; |experiencia_06                  ; 86 (0)              ; 59 (0)                    ; 0                 ; 0          ; 28   ; 0            ; |experiencia_06                             ; experiencia_06 ; work         ;
+;    |divisor_clock:DIVISAO_CLOCK| ; 15 (15)             ; 12 (12)                   ; 0                 ; 0          ; 0    ; 0            ; |experiencia_06|divisor_clock:DIVISAO_CLOCK ; divisor_clock  ; work         ;
+;    |hex2seg:PRIMEIRO_CARACTERE|  ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |experiencia_06|hex2seg:PRIMEIRO_CARACTERE  ; hex2seg        ; work         ;
+;    |hex2seg:SEGUNDO_CARACTERE|   ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |experiencia_06|hex2seg:SEGUNDO_CARACTERE   ; hex2seg        ; work         ;
+;    |serial_in:RECEPCAO|          ; 57 (57)             ; 47 (47)                   ; 0                 ; 0          ; 0    ; 0            ; |experiencia_06|serial_in:RECEPCAO          ; serial_in      ; work         ;
++----------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------------------+----------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++----------------------------------------------------------------------------------------------------+
+; State Machine - |experiencia_06|serial_in:RECEPCAO|estado                                          ;
++-----------------------+----------------+---------------------+-----------------------+-------------+
+; Name                  ; estado.done_st ; estado.receive_data ; estado.wait_start_bit ; estado.idle ;
++-----------------------+----------------+---------------------+-----------------------+-------------+
+; estado.idle           ; 0              ; 0                   ; 0                     ; 0           ;
+; estado.wait_start_bit ; 0              ; 0                   ; 1                     ; 1           ;
+; estado.receive_data   ; 0              ; 1                   ; 0                     ; 1           ;
+; estado.done_st        ; 1              ; 0                   ; 0                     ; 1           ;
++-----------------------+----------------+---------------------+-----------------------+-------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 59    ;
+; Number of registers using Synchronous Clear  ; 42    ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 19    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 40    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++-----------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: serial_in:RECEPCAO ;
++----------------+-------+----------------------------------------+
+; Parameter Name ; Value ; Type                                   ;
++----------------+-------+----------------------------------------+
+; polarity       ; true  ; Enumerated                             ;
+; width          ; 8     ; Signed Integer                         ;
+; parity         ; 1     ; Signed Integer                         ;
+; clock_mul      ; 4     ; Signed Integer                         ;
++----------------+-------+----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: serial_in:RECEPCAO|shift_register:DATA_STORAGE ;
++----------------+-------+--------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                               ;
++----------------+-------+--------------------------------------------------------------------+
+; width          ; 11    ; Signed Integer                                                     ;
++----------------+-------+--------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "serial_in:RECEPCAO|shift_register:DATA_STORAGE"                                         ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port     ; Type   ; Severity ; Details                                                                             ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; reset    ; Input  ; Info     ; Stuck at GND                                                                        ;
+; data_out ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; arriav_ff             ; 59                          ;
+;     CLR               ; 8                           ;
+;     CLR SCLR          ; 11                          ;
+;     ENA               ; 9                           ;
+;     ENA SCLR          ; 31                          ;
+; arriav_lcell_comb     ; 87                          ;
+;     arith             ; 42                          ;
+;         1 data inputs ; 42                          ;
+;     normal            ; 45                          ;
+;         0 data inputs ; 1                           ;
+;         1 data inputs ; 1                           ;
+;         2 data inputs ; 4                           ;
+;         3 data inputs ; 1                           ;
+;         4 data inputs ; 20                          ;
+;         5 data inputs ; 3                           ;
+;         6 data inputs ; 15                          ;
+; boundary_port         ; 28                          ;
+;                       ;                             ;
+; Max LUT depth         ; 4.00                        ;
+; Average LUT depth     ; 2.43                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
 Info: *******************************************************************
-Info: Running Quartus Prime Analysis & Elaboration
+Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Mon Apr 15 10:04:17 2024
-Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Exp_06 -c Exp_06 --analysis_and_elaboration
+    Info: Processing started: Fri Apr 19 17:26:23 2024
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Exp_06 -c Exp_06
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
-Info (12021): Found 2 design units, including 1 entities, in source file /users/operador/documents/temp/pcs3335/experiencia06/vhdl/serial_out.vhd
-    Info (12022): Found design unit 1: serial_in-arch_serial File: C:/Users/Operador/Documents/Temp/PCS3335/Experiencia06/VHDL/serial_out.vhd Line: 27
-    Info (12023): Found entity 1: serial_in File: C:/Users/Operador/Documents/Temp/PCS3335/Experiencia06/VHDL/serial_out.vhd Line: 12
+Info (12021): Found 2 design units, including 1 entities, in source file /users/operador/documents/temp/pcs3335/experiencia06/vhdl/hex2seg.vhd
+    Info (12022): Found design unit 1: hex2seg-comportamental File: C:/Users/Operador/Documents/Temp/PCS3335/Experiencia06/VHDL/hex2seg.vhd Line: 15
+    Info (12023): Found entity 1: hex2seg File: C:/Users/Operador/Documents/Temp/PCS3335/Experiencia06/VHDL/hex2seg.vhd Line: 7
+Info (12021): Found 2 design units, including 1 entities, in source file /users/operador/documents/temp/pcs3335/experiencia06/vhdl/experiencia_06.vhd
+    Info (12022): Found design unit 1: experiencia_06-arch File: C:/Users/Operador/Documents/Temp/PCS3335/Experiencia06/VHDL/experiencia_06.vhd Line: 12
+    Info (12023): Found entity 1: experiencia_06 File: C:/Users/Operador/Documents/Temp/PCS3335/Experiencia06/VHDL/experiencia_06.vhd Line: 1
+Info (12021): Found 2 design units, including 1 entities, in source file /users/operador/documents/temp/pcs3335/experiencia06/vhdl/serial_in.vhd
+    Info (12022): Found design unit 1: serial_in-arch_serial File: C:/Users/Operador/Documents/Temp/PCS3335/Experiencia06/VHDL/serial_in.vhd Line: 28
+    Info (12023): Found entity 1: serial_in File: C:/Users/Operador/Documents/Temp/PCS3335/Experiencia06/VHDL/serial_in.vhd Line: 13
+Info (12021): Found 2 design units, including 1 entities, in source file /users/operador/documents/temp/pcs3335/experiencia06/vhdl/shift_register.vhd
+    Info (12022): Found design unit 1: shift_register-arch_shift File: C:/Users/Operador/Documents/Temp/PCS3335/Experiencia06/VHDL/shift_register.vhd Line: 22
+    Info (12023): Found entity 1: shift_register File: C:/Users/Operador/Documents/Temp/PCS3335/Experiencia06/VHDL/shift_register.vhd Line: 11
 Info (12021): Found 2 design units, including 1 entities, in source file /users/operador/documents/temp/pcs3335/experiencia06/vhdl/divisor_clock.vhd
     Info (12022): Found design unit 1: divisor_clock-arch_div File: C:/Users/Operador/Documents/Temp/PCS3335/Experiencia06/VHDL/divisor_clock.vhd Line: 19
     Info (12023): Found entity 1: divisor_clock File: C:/Users/Operador/Documents/Temp/PCS3335/Experiencia06/VHDL/divisor_clock.vhd Line: 11
-Error (10465): VHDL error at serial_out.vhd(28): name "done" cannot be used because it is already used for a previously declared item File: C:/Users/Operador/Documents/Temp/PCS3335/Experiencia06/VHDL/serial_out.vhd Line: 28
-Error: Quartus Prime Analysis & Elaboration was unsuccessful. 1 error, 1 warning
-    Error: Peak virtual memory: 4834 megabytes
-    Error: Processing ended: Mon Apr 15 10:04:34 2024
-    Error: Elapsed time: 00:00:17
-    Error: Total CPU time (on all processors): 00:00:24
+Info (12127): Elaborating entity "experiencia_06" for the top level hierarchy
+Warning (10541): VHDL Signal Declaration warning at experiencia_06.vhd(6): used implicit default value for signal "parallel_data" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/Operador/Documents/Temp/PCS3335/Experiencia06/VHDL/experiencia_06.vhd Line: 6
+Info (12128): Elaborating entity "divisor_clock" for hierarchy "divisor_clock:DIVISAO_CLOCK" File: C:/Users/Operador/Documents/Temp/PCS3335/Experiencia06/VHDL/experiencia_06.vhd Line: 52
+Info (12128): Elaborating entity "serial_in" for hierarchy "serial_in:RECEPCAO" File: C:/Users/Operador/Documents/Temp/PCS3335/Experiencia06/VHDL/experiencia_06.vhd Line: 54
+Warning (10036): Verilog HDL or VHDL warning at serial_in.vhd(41): object "enable_storage" assigned a value but never read File: C:/Users/Operador/Documents/Temp/PCS3335/Experiencia06/VHDL/serial_in.vhd Line: 41
+Warning (10036): Verilog HDL or VHDL warning at serial_in.vhd(44): object "parallel_intern" assigned a value but never read File: C:/Users/Operador/Documents/Temp/PCS3335/Experiencia06/VHDL/serial_in.vhd Line: 44
+Warning (10631): VHDL Process Statement warning at serial_in.vhd(68): inferring latch(es) for signal or variable "reset_intern", which holds its previous value in one or more paths through the process File: C:/Users/Operador/Documents/Temp/PCS3335/Experiencia06/VHDL/serial_in.vhd Line: 68
+Info (10041): Inferred latch for "reset_intern" at serial_in.vhd(68) File: C:/Users/Operador/Documents/Temp/PCS3335/Experiencia06/VHDL/serial_in.vhd Line: 68
+Info (12128): Elaborating entity "shift_register" for hierarchy "serial_in:RECEPCAO|shift_register:DATA_STORAGE" File: C:/Users/Operador/Documents/Temp/PCS3335/Experiencia06/VHDL/serial_in.vhd Line: 65
+Info (12128): Elaborating entity "hex2seg" for hierarchy "hex2seg:SEGUNDO_CARACTERE" File: C:/Users/Operador/Documents/Temp/PCS3335/Experiencia06/VHDL/experiencia_06.vhd Line: 58
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "parallel_data[0]" is stuck at GND File: C:/Users/Operador/Documents/Temp/PCS3335/Experiencia06/VHDL/experiencia_06.vhd Line: 6
+    Warning (13410): Pin "parallel_data[1]" is stuck at GND File: C:/Users/Operador/Documents/Temp/PCS3335/Experiencia06/VHDL/experiencia_06.vhd Line: 6
+    Warning (13410): Pin "parallel_data[2]" is stuck at GND File: C:/Users/Operador/Documents/Temp/PCS3335/Experiencia06/VHDL/experiencia_06.vhd Line: 6
+    Warning (13410): Pin "parallel_data[3]" is stuck at GND File: C:/Users/Operador/Documents/Temp/PCS3335/Experiencia06/VHDL/experiencia_06.vhd Line: 6
+    Warning (13410): Pin "parallel_data[4]" is stuck at GND File: C:/Users/Operador/Documents/Temp/PCS3335/Experiencia06/VHDL/experiencia_06.vhd Line: 6
+    Warning (13410): Pin "parallel_data[5]" is stuck at GND File: C:/Users/Operador/Documents/Temp/PCS3335/Experiencia06/VHDL/experiencia_06.vhd Line: 6
+    Warning (13410): Pin "parallel_data[6]" is stuck at GND File: C:/Users/Operador/Documents/Temp/PCS3335/Experiencia06/VHDL/experiencia_06.vhd Line: 6
+    Warning (13410): Pin "parallel_data[7]" is stuck at GND File: C:/Users/Operador/Documents/Temp/PCS3335/Experiencia06/VHDL/experiencia_06.vhd Line: 6
+Info (286030): Timing-Driven Synthesis is running
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 114 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 4 input pins
+    Info (21059): Implemented 24 output pins
+    Info (21061): Implemented 86 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 14 warnings
+    Info: Peak virtual memory: 4837 megabytes
+    Info: Processing ended: Fri Apr 19 17:26:35 2024
+    Info: Elapsed time: 00:00:12
+    Info: Total CPU time (on all processors): 00:00:27
 
 

@@ -1,0 +1,380 @@
+# Errors: 0, Warnings: 0
+# Compile of divisor_clock.vhd was successful.
+# Errors: 0, Warnings: 0
+# Compile of serial_out.vhd was successful.
+# Errors: 0, Warnings: 0
+# Compile of tx_tb.vhd was successful.
+# Load canceled
+# Compile of divisor_clock.vhd was successful.
+# Compile of serial_out.vhd was successful.
+# Compile of tx_tb.vhd was successful.
+# 3 compiles, 0 failed with no errors.
+vsim -gui work.serial_out_tb
+# vsim -gui work.serial_out_tb 
+# Start time: 16:25:16 on Apr 12,2024
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.numeric_bit(body)
+# Loading work.serial_out_tb(behavior)
+# Loading work.serial_out(arch_serial)
+add wave -position insertpoint  \
+sim:/serial_out_tb/dut/serial_o
+add wave -position insertpoint  \
+sim:/serial_out_tb/dut/tx_done
+add wave -position insertpoint  \
+sim:/serial_out_tb/dut/tx_go
+add wave -position insertpoint  \
+sim:/serial_out_tb/dut/reset
+add wave -position insertpoint  \
+sim:/serial_out_tb/dut/clock
+add wave -position insertpoint  \
+sim:/serial_out_tb/dut/data
+run -all
+# ** Note: Inicio testes
+#    Time: 0 ps  Iteration: 0  Instance: /serial_out_tb
+# ** Error: Start Bit falhou
+#    Time: 60 ns  Iteration: 0  Instance: /serial_out_tb
+# ** Error: Teste Paridade Falhou
+#    Time: 240 ns  Iteration: 0  Instance: /serial_out_tb
+# ** Error: Done Falhou
+#    Time: 260 ns  Iteration: 0  Instance: /serial_out_tb
+# ** Note: Fim teste transmissao inicial
+#    Time: 260 ns  Iteration: 0  Instance: /serial_out_tb
+# ** Error: Start Bit falhou
+#    Time: 420 ns  Iteration: 0  Instance: /serial_out_tb
+# ** Fatal: (vsim-3734) Index value 8 is out of range 7 downto 0.
+#    Time: 430 ns  Iteration: 0  Process: /serial_out_tb/dut/TRANSMISSION File: C:/Users/Operador/Downloads/PCS3335-main/Experiencia05/VHDL/serial_out.vhd
+# Fatal error in Process TRANSMISSION at C:/Users/Operador/Downloads/PCS3335-main/Experiencia05/VHDL/serial_out.vhd line 66
+# 
+# HDL call sequence:
+# Stopped at C:/Users/Operador/Downloads/PCS3335-main/Experiencia05/VHDL/serial_out.vhd 66 Process TRANSMISSION
+# 
+# Compile of divisor_clock.vhd was successful.
+# Compile of serial_out.vhd was successful.
+# Compile of tx_tb.vhd was successful.
+# 3 compiles, 0 failed with no errors.
+# Compile of divisor_clock.vhd was successful.
+# Compile of serial_out.vhd was successful.
+# Compile of tx_tb.vhd was successful.
+# 3 compiles, 0 failed with no errors.
+# Load canceled
+# Load canceled
+run -all
+# Cannot continue because of fatal error.
+# HDL call sequence:
+# Stopped at C:/Users/Operador/Downloads/PCS3335-main/Experiencia05/VHDL/serial_out.vhd 66 Process TRANSMISSION
+# 
+project compileall; restart -f; run -all
+# Compile of divisor_clock.vhd was successful.
+# Compile of serial_out.vhd was successful.
+# Compile of tx_tb.vhd was successful.
+# 3 compiles, 0 failed with no errors.
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.serial_out_tb(behavior)
+# Loading work.serial_out(arch_serial)
+# ** Note: Inicio testes
+#    Time: 0 ps  Iteration: 0  Instance: /serial_out_tb
+# ** Error: Start Bit falhou
+#    Time: 60 ns  Iteration: 0  Instance: /serial_out_tb
+# ** Error: Teste Paridade Falhou
+#    Time: 240 ns  Iteration: 0  Instance: /serial_out_tb
+# ** Error: Done Falhou
+#    Time: 260 ns  Iteration: 0  Instance: /serial_out_tb
+# ** Note: Fim teste transmissao inicial
+#    Time: 260 ns  Iteration: 0  Instance: /serial_out_tb
+# ** Error: Start Bit falhou
+#    Time: 420 ns  Iteration: 0  Instance: /serial_out_tb
+# ** Fatal: (vsim-3734) Index value 8 is out of range 7 downto 0.
+#    Time: 430 ns  Iteration: 0  Process: /serial_out_tb/dut/TRANSMISSION File: C:/Users/Operador/Downloads/PCS3335-main/Experiencia05/VHDL/serial_out.vhd
+# Fatal error in Process TRANSMISSION at C:/Users/Operador/Downloads/PCS3335-main/Experiencia05/VHDL/serial_out.vhd line 68
+# 
+# HDL call sequence:
+# Stopped at C:/Users/Operador/Downloads/PCS3335-main/Experiencia05/VHDL/serial_out.vhd 68 Process TRANSMISSION
+# 
+project compileall; restart -f; run -all
+# Compile of divisor_clock.vhd was successful.
+# Compile of serial_out.vhd was successful.
+# Compile of tx_tb.vhd was successful.
+# 3 compiles, 0 failed with no errors.
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.serial_out_tb(behavior)
+# Loading work.serial_out(arch_serial)
+# ** Note: Inicio testes
+#    Time: 0 ps  Iteration: 0  Instance: /serial_out_tb
+# ** Error: Start Bit falhou
+#    Time: 60 ns  Iteration: 0  Instance: /serial_out_tb
+# ** Note: 0
+#    Time: 70 ns  Iteration: 0  Instance: /serial_out_tb/dut
+# ** Note: 1
+#    Time: 90 ns  Iteration: 0  Instance: /serial_out_tb/dut
+# ** Note: 2
+#    Time: 110 ns  Iteration: 0  Instance: /serial_out_tb/dut
+# ** Note: 3
+#    Time: 130 ns  Iteration: 0  Instance: /serial_out_tb/dut
+# ** Note: 4
+#    Time: 150 ns  Iteration: 0  Instance: /serial_out_tb/dut
+# ** Note: 5
+#    Time: 170 ns  Iteration: 0  Instance: /serial_out_tb/dut
+# ** Note: 6
+#    Time: 190 ns  Iteration: 0  Instance: /serial_out_tb/dut
+# ** Note: 7
+#    Time: 210 ns  Iteration: 0  Instance: /serial_out_tb/dut
+# ** Error: Teste Paridade Falhou
+#    Time: 240 ns  Iteration: 0  Instance: /serial_out_tb
+# ** Error: Done Falhou
+#    Time: 260 ns  Iteration: 0  Instance: /serial_out_tb
+# ** Note: Fim teste transmissao inicial
+#    Time: 260 ns  Iteration: 0  Instance: /serial_out_tb
+# ** Error: Start Bit falhou
+#    Time: 420 ns  Iteration: 0  Instance: /serial_out_tb
+# ** Note: 8
+#    Time: 430 ns  Iteration: 0  Instance: /serial_out_tb/dut
+# ** Fatal: (vsim-3734) Index value 8 is out of range 7 downto 0.
+#    Time: 430 ns  Iteration: 0  Process: /serial_out_tb/dut/TRANSMISSION File: C:/Users/Operador/Downloads/PCS3335-main/Experiencia05/VHDL/serial_out.vhd
+# Fatal error in Process TRANSMISSION at C:/Users/Operador/Downloads/PCS3335-main/Experiencia05/VHDL/serial_out.vhd line 69
+# 
+# HDL call sequence:
+# Stopped at C:/Users/Operador/Downloads/PCS3335-main/Experiencia05/VHDL/serial_out.vhd 69 Process TRANSMISSION
+# 
+project compileall; restart -f; run -all
+# Compile of divisor_clock.vhd was successful.
+# Compile of serial_out.vhd was successful.
+# Compile of tx_tb.vhd was successful.
+# 3 compiles, 0 failed with no errors.
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.serial_out_tb(behavior)
+# Loading work.serial_out(arch_serial)
+# ** Note: Inicio testes
+#    Time: 0 ps  Iteration: 0  Instance: /serial_out_tb
+# ** Error: Start Bit falhou
+#    Time: 60 ns  Iteration: 0  Instance: /serial_out_tb
+# ** Error: Teste Paridade Falhou
+#    Time: 240 ns  Iteration: 0  Instance: /serial_out_tb
+# ** Error: Done Falhou
+#    Time: 260 ns  Iteration: 0  Instance: /serial_out_tb
+# ** Note: Fim teste transmissao inicial
+#    Time: 260 ns  Iteration: 0  Instance: /serial_out_tb
+# ** Error: Start Bit falhou
+#    Time: 420 ns  Iteration: 0  Instance: /serial_out_tb
+# ** Error: Teste Paridade Falhou
+#    Time: 600 ns  Iteration: 0  Instance: /serial_out_tb
+# ** Note: Fim teste reset e transmissao
+#    Time: 620 ns  Iteration: 0  Instance: /serial_out_tb
+# ** Note: Inicio teste metralhadora
+#    Time: 720 ns  Iteration: 0  Instance: /serial_out_tb
+# ** Error: Start Bit falhou
+#    Time: 780 ns  Iteration: 0  Instance: /serial_out_tb
+# ** Error: serial:'1', esperado:'0'idx:5
+#    Time: 900 ns  Iteration: 0  Instance: /serial_out_tb
+# ** Error: Teste Paridade Falhou
+#    Time: 960 ns  Iteration: 0  Instance: /serial_out_tb
+# ** Error: Start Bit falhou
+#    Time: 1 us  Iteration: 0  Instance: /serial_out_tb
+# ** Error: Teste Paridade Falhou
+#    Time: 1180 ns  Iteration: 0  Instance: /serial_out_tb
+# ** Error: Start Bit falhou
+#    Time: 1220 ns  Iteration: 0  Instance: /serial_out_tb
+# ** Error: serial:'1', esperado:'0'idx:1
+#    Time: 1260 ns  Iteration: 0  Instance: /serial_out_tb
+# ** Error: serial:'1', esperado:'0'idx:3
+#    Time: 1300 ns  Iteration: 0  Instance: /serial_out_tb
+# ** Error: serial:'1', esperado:'0'idx:5
+#    Time: 1340 ns  Iteration: 0  Instance: /serial_out_tb
+# ** Error: Teste Paridade Falhou
+#    Time: 1400 ns  Iteration: 0  Instance: /serial_out_tb
+# ** Note: Fim teste metralhadora
+#    Time: 1420 ns  Iteration: 0  Instance: /serial_out_tb
+# ** Note: Inicio teste swap data
+#    Time: 1520 ns  Iteration: 0  Instance: /serial_out_tb
+# ** Error: Start Bit falhou
+#    Time: 1580 ns  Iteration: 0  Instance: /serial_out_tb
+# ** Error: Paridade Falhou
+#    Time: 1760 ns  Iteration: 0  Instance: /serial_out_tb
+# ** Note: Fim teste swap data
+#    Time: 1780 ns  Iteration: 0  Instance: /serial_out_tb
+project compileall; restart -f; run -all
+# Compile of divisor_clock.vhd was successful.
+# Compile of serial_out.vhd was successful.
+# Compile of tx_tb.vhd was successful.
+# 3 compiles, 0 failed with no errors.
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.serial_out_tb(behavior)
+# Loading work.serial_out(arch_serial)
+# ** Note: Inicio testes
+#    Time: 0 ps  Iteration: 0  Instance: /serial_out_tb
+# ** Error: Teste Paridade Falhou
+#    Time: 240 ns  Iteration: 0  Instance: /serial_out_tb
+# ** Error: Done Falhou
+#    Time: 260 ns  Iteration: 0  Instance: /serial_out_tb
+# ** Note: Fim teste transmissao inicial
+#    Time: 260 ns  Iteration: 0  Instance: /serial_out_tb
+# ** Error: Teste Paridade Falhou
+#    Time: 600 ns  Iteration: 0  Instance: /serial_out_tb
+# ** Note: Fim teste reset e transmissao
+#    Time: 620 ns  Iteration: 0  Instance: /serial_out_tb
+# ** Note: Inicio teste metralhadora
+#    Time: 720 ns  Iteration: 0  Instance: /serial_out_tb
+# ** Error: serial:'1', esperado:'0'idx:5
+#    Time: 900 ns  Iteration: 0  Instance: /serial_out_tb
+# ** Error: Teste Paridade Falhou
+#    Time: 960 ns  Iteration: 0  Instance: /serial_out_tb
+# ** Error: Teste Paridade Falhou
+#    Time: 1180 ns  Iteration: 0  Instance: /serial_out_tb
+# ** Error: Start Bit falhou
+#    Time: 1220 ns  Iteration: 0  Instance: /serial_out_tb
+# ** Error: serial:'1', esperado:'0'idx:1
+#    Time: 1260 ns  Iteration: 0  Instance: /serial_out_tb
+# ** Error: serial:'1', esperado:'0'idx:3
+#    Time: 1300 ns  Iteration: 0  Instance: /serial_out_tb
+# ** Error: serial:'1', esperado:'0'idx:5
+#    Time: 1340 ns  Iteration: 0  Instance: /serial_out_tb
+# ** Error: Teste Paridade Falhou
+#    Time: 1400 ns  Iteration: 0  Instance: /serial_out_tb
+# ** Note: Fim teste metralhadora
+#    Time: 1420 ns  Iteration: 0  Instance: /serial_out_tb
+# ** Note: Inicio teste swap data
+#    Time: 1520 ns  Iteration: 0  Instance: /serial_out_tb
+# ** Error: Paridade Falhou
+#    Time: 1760 ns  Iteration: 0  Instance: /serial_out_tb
+# ** Note: Fim teste swap data
+#    Time: 1780 ns  Iteration: 0  Instance: /serial_out_tb
+project compileall; restart -f; run -all
+# Compile of divisor_clock.vhd was successful.
+# Compile of serial_out.vhd was successful.
+# Compile of tx_tb.vhd was successful.
+# 3 compiles, 0 failed with no errors.
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.serial_out_tb(behavior)
+# Loading work.serial_out(arch_serial)
+# ** Note: Inicio testes
+#    Time: 0 ps  Iteration: 0  Instance: /serial_out_tb
+# ** Error: Done Falhou
+#    Time: 260 ns  Iteration: 0  Instance: /serial_out_tb
+# ** Note: Fim teste transmissao inicial
+#    Time: 260 ns  Iteration: 0  Instance: /serial_out_tb
+# ** Note: Fim teste reset e transmissao
+#    Time: 620 ns  Iteration: 0  Instance: /serial_out_tb
+# ** Note: Inicio teste metralhadora
+#    Time: 720 ns  Iteration: 0  Instance: /serial_out_tb
+# ** Error: serial:'1', esperado:'0'idx:5
+#    Time: 900 ns  Iteration: 0  Instance: /serial_out_tb
+# ** Error: serial:'0', esperado:'1'idx:6
+#    Time: 920 ns  Iteration: 0  Instance: /serial_out_tb
+# ** Error: Teste Paridade Falhou
+#    Time: 960 ns  Iteration: 0  Instance: /serial_out_tb
+# ** Error: Start Bit falhou
+#    Time: 1220 ns  Iteration: 0  Instance: /serial_out_tb
+# ** Error: serial:'1', esperado:'0'idx:1
+#    Time: 1260 ns  Iteration: 0  Instance: /serial_out_tb
+# ** Error: serial:'1', esperado:'0'idx:3
+#    Time: 1300 ns  Iteration: 0  Instance: /serial_out_tb
+# ** Error: serial:'1', esperado:'0'idx:5
+#    Time: 1340 ns  Iteration: 0  Instance: /serial_out_tb
+# ** Error: Teste Paridade Falhou
+#    Time: 1400 ns  Iteration: 0  Instance: /serial_out_tb
+# ** Note: Fim teste metralhadora
+#    Time: 1420 ns  Iteration: 0  Instance: /serial_out_tb
+# ** Note: Inicio teste swap data
+#    Time: 1520 ns  Iteration: 0  Instance: /serial_out_tb
+# ** Note: Fim teste swap data
+#    Time: 1780 ns  Iteration: 0  Instance: /serial_out_tb
+project compileall; restart -f; run -all
+# Compile of divisor_clock.vhd was successful.
+# Compile of serial_out.vhd was successful.
+# Compile of tx_tb.vhd was successful.
+# 3 compiles, 0 failed with no errors.
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.serial_out_tb(behavior)
+# Loading work.serial_out(arch_serial)
+# ** Note: Inicio testes
+#    Time: 0 ps  Iteration: 0  Instance: /serial_out_tb
+# ** Error: Done Falhou
+#    Time: 260 ns  Iteration: 0  Instance: /serial_out_tb
+# ** Note: Fim teste transmissao inicial
+#    Time: 260 ns  Iteration: 0  Instance: /serial_out_tb
+# ** Note: Fim teste reset e transmissao
+#    Time: 620 ns  Iteration: 0  Instance: /serial_out_tb
+# ** Note: Inicio teste metralhadora
+#    Time: 720 ns  Iteration: 0  Instance: /serial_out_tb
+# ** Error: serial:'1', esperado:'0'idx:5
+#    Time: 900 ns  Iteration: 0  Instance: /serial_out_tb
+# ** Error: serial:'0', esperado:'1'idx:6
+#    Time: 920 ns  Iteration: 0  Instance: /serial_out_tb
+# ** Error: Teste Paridade Falhou
+#    Time: 960 ns  Iteration: 0  Instance: /serial_out_tb
+# ** Error: Start Bit falhou
+#    Time: 1220 ns  Iteration: 0  Instance: /serial_out_tb
+# ** Error: serial:'1', esperado:'0'idx:1
+#    Time: 1260 ns  Iteration: 0  Instance: /serial_out_tb
+# ** Error: serial:'1', esperado:'0'idx:3
+#    Time: 1300 ns  Iteration: 0  Instance: /serial_out_tb
+# ** Error: serial:'1', esperado:'0'idx:5
+#    Time: 1340 ns  Iteration: 0  Instance: /serial_out_tb
+# ** Error: Teste Paridade Falhou
+#    Time: 1400 ns  Iteration: 0  Instance: /serial_out_tb
+# ** Note: Fim teste metralhadora
+#    Time: 1420 ns  Iteration: 0  Instance: /serial_out_tb
+# ** Note: Inicio teste swap data
+#    Time: 1520 ns  Iteration: 0  Instance: /serial_out_tb
+# ** Note: Fim teste swap data
+#    Time: 1780 ns  Iteration: 0  Instance: /serial_out_tb
+project compileall; restart -f; run -all
+# Compile of divisor_clock.vhd was successful.
+# Compile of serial_out.vhd was successful.
+# Compile of tx_tb.vhd was successful.
+# 3 compiles, 0 failed with no errors.
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.serial_out_tb(behavior)
+# Loading work.serial_out(arch_serial)
+# ** Note: Inicio testes
+#    Time: 0 ps  Iteration: 0  Instance: /serial_out_tb
+# ** Note: Fim teste transmissao inicial
+#    Time: 260 ns  Iteration: 0  Instance: /serial_out_tb
+# ** Note: Fim teste reset e transmissao
+#    Time: 620 ns  Iteration: 0  Instance: /serial_out_tb
+# ** Note: Inicio teste metralhadora
+#    Time: 720 ns  Iteration: 0  Instance: /serial_out_tb
+# ** Error: serial:'0', esperado:'1'idx:0
+#    Time: 800 ns  Iteration: 0  Instance: /serial_out_tb
+# ** Error: serial:'1', esperado:'0'idx:1
+#    Time: 820 ns  Iteration: 0  Instance: /serial_out_tb
+# ** Error: serial:'0', esperado:'1'idx:2
+#    Time: 840 ns  Iteration: 0  Instance: /serial_out_tb
+# ** Error: serial:'1', esperado:'0'idx:3
+#    Time: 860 ns  Iteration: 0  Instance: /serial_out_tb
+# ** Error: serial:'1', esperado:'0'idx:5
+#    Time: 1120 ns  Iteration: 0  Instance: /serial_out_tb
+# ** Error: serial:'0', esperado:'1'idx:6
+#    Time: 1140 ns  Iteration: 0  Instance: /serial_out_tb
+# ** Error: Teste Paridade Falhou
+#    Time: 1180 ns  Iteration: 0  Instance: /serial_out_tb
+# ** Error: Stop Bit falhou
+#    Time: 1200 ns  Iteration: 0  Instance: /serial_out_tb
+# ** Error: Start Bit falhou
+#    Time: 1220 ns  Iteration: 0  Instance: /serial_out_tb
+# ** Error: serial:'0', esperado:'1'idx:0
+#    Time: 1240 ns  Iteration: 0  Instance: /serial_out_tb
+# ** Error: serial:'1', esperado:'0'idx:1
+#    Time: 1260 ns  Iteration: 0  Instance: /serial_out_tb
+# ** Error: serial:'0', esperado:'1'idx:2
+#    Time: 1280 ns  Iteration: 0  Instance: /serial_out_tb
+# ** Error: serial:'1', esperado:'0'idx:3
+#    Time: 1300 ns  Iteration: 0  Instance: /serial_out_tb
+# ** Error: serial:'0', esperado:'1'idx:4
+#    Time: 1320 ns  Iteration: 0  Instance: /serial_out_tb
+# ** Error: serial:'1', esperado:'0'idx:5
+#    Time: 1340 ns  Iteration: 0  Instance: /serial_out_tb
+# ** Error: serial:'0', esperado:'1'idx:7
+#    Time: 1380 ns  Iteration: 0  Instance: /serial_out_tb
+# ** Error: Teste Paridade Falhou
+#    Time: 1400 ns  Iteration: 0  Instance: /serial_out_tb
+# ** Note: Fim teste metralhadora
+#    Time: 1420 ns  Iteration: 0  Instance: /serial_out_tb
+# ** Note: Inicio teste swap data
+#    Time: 1520 ns  Iteration: 0  Instance: /serial_out_tb
+# ** Note: Fim teste swap data
+#    Time: 1780 ns  Iteration: 0  Instance: /serial_out_tb
+# WARNING: No extended dataflow license exists
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# End time: 18:12:22 on Apr 12,2024, Elapsed time: 1:47:06
+# Errors: 17, Warnings: 1
