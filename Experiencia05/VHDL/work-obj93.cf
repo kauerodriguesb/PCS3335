@@ -1,0 +1,7 @@
+v 4
+file . "serial_out.vhd" "910c9bbce19be5fa4bf9a2cb30623d0c837cf2d2" "20240412155035.659":
+  entity serial_out at 8( 312) + 0 on 71;
+  architecture arch_serial of serial_out at 27( 746) + 0 on 72;
+file . "tx_tb.vhd" "c1fc74a95c48c12650bb5ff8f860cdeb028aa481" "20240412154401.769":
+  entity serial_out_tb at 1( 0) + 0 on 69;
+  architecture behavior of serial_out_tb at 7( 91) + 0 on 70;

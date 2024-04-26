@@ -1,0 +1,10 @@
+v 4
+file . "registrador_32.vhd" "4e630597bcd91c54a61abd602bfff7ee8cb6f4d1" "20240405023908.424":
+  entity registrador_32 at 8( 301) + 0 on 23;
+  architecture arch_reg of registrador_32 at 19( 517) + 0 on 24;
+file . "contador.vhd" "9f7206266ba7cf659d69e72d90077deeb968f980" "20240324235949.684":
+  entity contador at 8( 299) + 0 on 19;
+  architecture arch_contador of contador at 18( 469) + 0 on 20;
+file . "contador_tb.vhd" "42ff323fb9d64a8b2caddc7f157e60c15e274a24" "20240324235949.688":
+  entity contador_tb at 8( 293) + 0 on 21;
+  architecture testbench of contador_tb at 14( 374) + 0 on 22;

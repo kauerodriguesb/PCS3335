@@ -27,9 +27,10 @@ begin
 	 begin
 		if (reset = '1') then
 			data <= (others => '0');
-		else 
-			if (rising_edge(clock) and enable = '1') then				
-				for i in 1 to WIDTH-1 loop
+		else  
+			if (rising_edge(clock) and enable = '1') then
+                data(0) <= serial_in;				
+				for i in 2 to WIDTH-1 loop
 					data(i) <= data(i-1);
 				end loop;
 			end if;
@@ -100,22 +101,24 @@ begin
 					estado <= wait_start_bit;
 				
 				when wait_start_bit => 
-					if start = '1' then
-						estado <= wait_start_bit;
-                    elsif start = '0' then
+					if start = '0' then
                         done <= '0';
+						estado <= wait_start_bit;
+                    elsif start = '1' then                        
                         estado <= receive_data;
                     end if;
 				
 				when receive_data => 
-                    receive_count <= receive_count + 1;
-                    enable_storage <= '1';
-                    if (receive_count < DATA_WIDTH-1) then -- Nao recebi todos os bits ainda
-                        estado <= receive_data;
-                    else 
-                        enable_storage <= '0'; 
-                        receive_count <= 0;
-                        estado <= done_st;
+                    if serial_data = '0' then
+                        receive_count <= receive_count + 1;
+                        enable_storage <= '1';
+                        if (receive_count < DATA_WIDTH-1) then -- Nao recebi todos os bits ainda
+                            estado <= receive_data;
+                        else 
+                            enable_storage <= '0'; 
+                            receive_count <= 0;
+                            estado <= done_st;
+                        end if;
                     end if;
 				
 				when done_st => 
