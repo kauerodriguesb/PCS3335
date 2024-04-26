@@ -99,3 +99,37 @@ begin
     serial_o <= serial_intern when POLARITY = TRUE else not serial_intern;
     tx_done    <= done;
 end arch_serial;
+--
+--        if reset = '0' then
+--            done <= '0';
+--        elsif tx_go = '1' then
+--            done <= '0';
+--            if rising_edge(clock) then
+--                serial_intern <= start_bit;
+--
+--                for i in 0 to WIDTH-1 loop
+--                    serial_intern <= intern(i);
+--                end loop;
+--                
+--                if PARITY = 1 then
+--                    for i in intern'range loop
+--                        paridade := paridade xor intern(i);
+--                    end loop;
+--                    serial_intern <= not paridade;
+--                else 
+--                    for i in intern'range loop
+--                        paridade := paridade xor intern(i);
+--                    end loop;
+--                    serial_intern <= paridade;
+--                end if;
+--                
+--                for i in 0 to STOP_BITS loop
+--                    serial_intern <= stop_bit;
+--                end loop;               
+--            end if;
+--            done <= '1';
+--        end if;
+--    end process;
+--
+--    serial_o <= serial_intern;
+--    tx_done    <= done;

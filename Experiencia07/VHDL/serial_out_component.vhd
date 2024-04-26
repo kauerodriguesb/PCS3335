@@ -1,6 +1,6 @@
 -------------------------------------------------------------------------------
 -- Author: Kauê Rodrigues Barbosa (kaue.rodrigueskrb@usp.br)
--- Module Name: serial_out
+-- Module Name: serial_out_component
 -- Description:
 -- Sends 8 bits via serial port to a computer
 -------------------------------------------------------------------------------
@@ -8,7 +8,7 @@
 library IEEE;
 use IEEE.numeric_bit.all;
 
-entity serial_out is
+entity serial_out_component is
     generic( 
         POLARITY  : boolean := TRUE;
         WIDTH     : natural := 7;
@@ -22,9 +22,9 @@ entity serial_out is
         data                 : in bit_vector(WIDTH-1 downto 0);    
         serial_o : out  bit
     );
-end serial_out;
+end serial_out_component;
 
-architecture arch_serial of serial_out is
+architecture arch_serial of serial_out_component is
     signal done                         : bit := '0';
     signal parity_s, data_reg           : bit_vector(WIDTH-1 downto 0);
     signal serial_intern: bit := '0';
@@ -33,12 +33,6 @@ architecture arch_serial of serial_out is
     type estados is (ready, send_data, send_parity, send_stop_bits, done_st);
     signal estado : estados := ready;
 begin
-    
-    -- Verificação da polariadade
-    --start_bit <= '0' when POLARITY = TRUE else '1';
-    --intern    <= data when POLARITY = TRUE else not data;
-    --stop_bit  <= '1' when POLARITY = TRUE else '0';
-
 	 
 	 parity_s(0) <= data_reg(0);
 	 PARIDADE: for i in 1 to WIDTH-1 generate
@@ -51,7 +45,7 @@ begin
 		  if reset = '1' then
 				serial_intern <= '1'; 
 				estado <= ready;
-        elsif rising_edge(clock) then
+          elsif rising_edge(clock) then
 		  
             case (estado) is 
                 when ready =>						  
@@ -99,37 +93,3 @@ begin
     serial_o <= serial_intern when POLARITY = TRUE else not serial_intern;
     tx_done    <= done;
 end arch_serial;
---
---        if reset = '0' then
---            done <= '0';
---        elsif tx_go = '1' then
---            done <= '0';
---            if rising_edge(clock) then
---                serial_intern <= start_bit;
---
---                for i in 0 to WIDTH-1 loop
---                    serial_intern <= intern(i);
---                end loop;
---                
---                if PARITY = 1 then
---                    for i in intern'range loop
---                        paridade := paridade xor intern(i);
---                    end loop;
---                    serial_intern <= not paridade;
---                else 
---                    for i in intern'range loop
---                        paridade := paridade xor intern(i);
---                    end loop;
---                    serial_intern <= paridade;
---                end if;
---                
---                for i in 0 to STOP_BITS loop
---                    serial_intern <= stop_bit;
---                end loop;               
---            end if;
---            done <= '1';
---        end if;
---    end process;
---
---    serial_o <= serial_intern;
---    tx_done    <= done;
