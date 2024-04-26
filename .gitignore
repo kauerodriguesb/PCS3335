@@ -3,3 +3,6 @@ serialização
 
 #Arquivos bak
 *.bak
+
+#Arquivos vcd
+*.vcd
