@@ -8,7 +8,7 @@
 library IEEE;
 use IEEE.numeric_bit.all;
 
-entity serial_out_component is
+entity sout is
     generic( 
         POLARITY  : boolean := TRUE;
         WIDTH     : natural := 7;
@@ -22,9 +22,9 @@ entity serial_out_component is
         data                 : in bit_vector(WIDTH-1 downto 0);    
         serial_o : out  bit
     );
-end serial_out_component;
+end sout;
 
-architecture arch_serial of serial_out_component is
+architecture arch_serial of sout is
     signal done                         : bit := '0';
     signal parity_s, data_reg           : bit_vector(WIDTH-1 downto 0);
     signal serial_intern: bit := '0';

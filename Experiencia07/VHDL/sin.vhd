@@ -9,7 +9,7 @@
 library IEEE;
 use IEEE.numeric_bit.all;
 
-entity serial_in is
+entity sin is
     generic( 
         POLARITY  : boolean := TRUE;
         WIDTH     : natural := 8;
@@ -22,9 +22,9 @@ entity serial_in is
         done, parity_bit                 : out  bit;
         parallel_data                    : out bit_vector(WIDTH-1 downto 0)
     );
-end serial_in;
+end sin;
 
-architecture arch_serial of serial_in is
+architecture arch_serial of sin is
     
     component shift_register is
         generic( 
@@ -93,7 +93,4 @@ begin
                      not parallel_intern(WIDTH-1 downto 0);
 
     parity_bit <= parallel_intern(WIDTH);
-
-    --serial_o <= serial_intern when POLARITY = TRUE else not serial_intern;
-    --tx_done    <= done;
 end arch_serial;
