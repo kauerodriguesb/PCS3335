@@ -10,7 +10,7 @@ use IEEE.numeric_bit.all;
 
 entity registrador_N is
     generic (
-        WIDTH : natural := 8;
+        WIDTH : natural := 8
     );
 
     Port (
@@ -22,9 +22,9 @@ end registrador_N;
 
 architecture arch_reg of registrador_N is
 begin
-    process
+    process(clk, clear, enable)
     begin
-        if rising_edge(clock) then
+        if rising_edge(clk) then
             if clear = '1' then 
                 Q <= (others => '0');
             elsif enable = '1' then 

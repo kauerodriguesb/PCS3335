@@ -1,11 +1,11 @@
 library IEEE;
-use IEEE.numeric_std.all;
+use IEEE.numeric_bit.all;
 
 entity calcula_kpw is 
 port(
 	msg : in bit_vector(511 downto 0);
 	contagem : in bit_vector(5 downto 0);
-    kpw_out : out bit_vector(31 downto 0)
+   kpw_out : out bit_vector(31 downto 0)
 );
 end calcula_kpw;
 
@@ -27,7 +27,7 @@ architecture arch_calcula of calcula_kpw is
 
 	type K_values is array (0 to 63) of bit_vector(31 downto 0);  -- Vetor de constantes
     constant K : K_values := (
-        x"428a2f98", x"71374491", x"b5c0fbcf", x"e9b5dba5", x"e9b5dba5", x"3956c25b", x"59f111f1", x"923f82a4", x"ab1c5ed5",
+        x"428a2f98", x"71374491", x"b5c0fbcf", x"e9b5dba5", x"3956c25b", x"59f111f1", x"923f82a4", x"ab1c5ed5",
         x"d807aa98", x"12835b01", x"243185be", x"550c7dc3", x"72be5d74", x"80deb1fe", x"9bdc06a7", x"c19bf174",
         x"e49b69c1", x"efbe4786", x"0fc19dc6", x"240ca1cc", x"2de92c6f", x"4a7484aa", x"5cb0a9dc", x"76f988da",
         x"983e5152", x"a831c66d", x"b00327c8", x"bf597fc7", x"c6e00bf3", x"d5a79147", x"06ca6351", x"14292967",
@@ -38,29 +38,49 @@ architecture arch_calcula of calcula_kpw is
     );
 	 
 	 type W_vector is array (0 to 63) of bit_vector(31 downto 0);  -- Vetor de constantes
+	 type estados is (primeiros, ultimos);
+	 
+	 signal estado : estados := primeiros;
 	 
 	 signal W : W_vector;
 	 signal indice : integer := 0;
-	 signal sig0_entrada, sig1_entrada, sig0_saida, sig1_saida : bit_vector(31 downto 0);
+	 signal sig0_entrada, sig1_entrada, sig0_saida, sig1_saida : bit_vector(31 downto 0);	 
 	 
 begin
 
-	instance_sig0 : sigma0 port map (sig0_entrada, sig0_saida);
+	 instance_sig0 : sigma0 port map (sig0_entrada, sig0_saida);
     instance_sig1 : sigma1 port map (sig1_entrada, sig1_saida);
 
     sig1_entrada <= W((indice+1) - 2);
     sig0_entrada <= W((indice+1) - 15);	
 
-    indice <= to_integer(contagem);
+    indice <= to_integer(unsigned(contagem));
 
-    kpw_out <= W(indice) + K(indice);
+    kpw_out <= bit_vector(unsigned(W(indice)) + unsigned(K(indice)));
 
     process(contagem)
     begin  
-        W(indice) <= msgi((32*(indice+1)-1) downto 32*indice) when contagem(5 downto 4) = "00" else-- 16 primeiros valores
-                    sig1_saida + W((indice+1)-7) + sig0_saida + W((indice+1)-16) when contagem(5 downto 4);
-   	  
-        wait;
+		  case (estado) is
+		  
+			  when primeiros => 
+					if contagem(5 downto 4) = "00" then
+						W(indice) <= msg((32*(indice+1)-1) downto 32*indice);
+						estado <= primeiros;
+					else
+						estado <= ultimos;
+					end if;
+				
+			  when ultimos =>
+					 if contagem = "111111" then
+						estado <= primeiros;
+					 else
+						W(indice) <= bit_vector(unsigned(sig1_saida) + unsigned(W((indice+1)-7)) + unsigned(sig0_saida) + 
+										 unsigned(W((indice+1)-16)));
+						estado <= ultimos;
+					 end if;
+					
+   	  end case;
+		  
     end process;
 
 end arch_calcula;

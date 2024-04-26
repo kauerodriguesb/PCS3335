@@ -1,0 +1,101 @@
+------------------------------------------------------------
+Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1100mV 85C Model Setup 'clk'
+Slack : -4.244
+TNS   : -72.843
+
+Type  : Slow 1100mV 85C Model Setup 'sha256_1b:INST|divisor_clock_send:CLKSND|internal'
+Slack : -0.480
+TNS   : -0.480
+
+Type  : Slow 1100mV 85C Model Hold 'sha256_1b:INST|divisor_clock_send:CLKSND|internal'
+Slack : 0.422
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Hold 'clk'
+Slack : 0.423
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'clk'
+Slack : -0.538
+TNS   : -23.511
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'sha256_1b:INST|divisor_clock_send:CLKSND|internal'
+Slack : -0.538
+TNS   : -0.784
+
+Type  : Slow 1100mV 0C Model Setup 'clk'
+Slack : -4.424
+TNS   : -71.584
+
+Type  : Slow 1100mV 0C Model Setup 'sha256_1b:INST|divisor_clock_send:CLKSND|internal'
+Slack : -0.500
+TNS   : -0.500
+
+Type  : Slow 1100mV 0C Model Hold 'clk'
+Slack : 0.435
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Hold 'sha256_1b:INST|divisor_clock_send:CLKSND|internal'
+Slack : 0.439
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'clk'
+Slack : -0.538
+TNS   : -23.608
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'sha256_1b:INST|divisor_clock_send:CLKSND|internal'
+Slack : -0.538
+TNS   : -0.779
+
+Type  : Fast 1100mV 85C Model Setup 'clk'
+Slack : -2.465
+TNS   : -20.825
+
+Type  : Fast 1100mV 85C Model Setup 'sha256_1b:INST|divisor_clock_send:CLKSND|internal'
+Slack : 0.070
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Hold 'sha256_1b:INST|divisor_clock_send:CLKSND|internal'
+Slack : 0.159
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Hold 'clk'
+Slack : 0.199
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'clk'
+Slack : -0.324
+TNS   : -3.119
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'sha256_1b:INST|divisor_clock_send:CLKSND|internal'
+Slack : 0.157
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Setup 'clk'
+Slack : -2.045
+TNS   : -17.250
+
+Type  : Fast 1100mV 0C Model Setup 'sha256_1b:INST|divisor_clock_send:CLKSND|internal'
+Slack : 0.095
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Hold 'sha256_1b:INST|divisor_clock_send:CLKSND|internal'
+Slack : 0.144
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Hold 'clk'
+Slack : 0.188
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'clk'
+Slack : -0.313
+TNS   : -3.138
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'sha256_1b:INST|divisor_clock_send:CLKSND|internal'
+Slack : 0.160
+TNS   : 0.000
+
+------------------------------------------------------------

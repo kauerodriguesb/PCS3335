@@ -5,7 +5,7 @@ entity uc_sha256 is
     Port (
         rst, clk  : in bit;
         multisteps_done, rx_done, tx_done : in bit; 
-		en_load, multisteps_reset, tx_go, rx_go  : out bit;
+		en_load, multisteps_reset, tx_go, rx_go  : out bit
     );
 end uc_sha256;
 
@@ -24,7 +24,7 @@ begin
             tx_go <= '0';
             rx_go <= '0';
             estado <= recebe;
-        elsif rising_edge(clock) then
+        elsif rising_edge(clk) then
 
             case (estado) is
 

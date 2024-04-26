@@ -1,0 +1,22 @@
+
+State Machine - |experiencia_07|sha256_1b:INST|sout:RX|estado
+Name estado.done_st estado.send_stop_bits estado.send_parity estado.send_data estado.ready 
+estado.ready 0 0 0 0 0 
+estado.send_data 0 0 0 1 1 
+estado.send_parity 0 0 1 0 1 
+estado.send_stop_bits 0 1 0 0 1 
+estado.done_st 1 0 0 0 1 
+
+State Machine - |experiencia_07|sha256_1b:INST|sin:TX|estado
+Name estado.done_st estado.receive_data estado.wait_start_bit estado.idle 
+estado.idle 0 0 0 0 
+estado.wait_start_bit 0 0 1 1 
+estado.receive_data 0 1 0 1 
+estado.done_st 1 0 0 1 
+
+State Machine - |experiencia_07|sha256_1b:INST|uc_sha256:UC|estado
+Name estado.transmite estado.multisteps estado.carrega estado.recebe 
+estado.recebe 0 0 0 0 
+estado.carrega 0 0 1 1 
+estado.multisteps 0 1 0 1 
+estado.transmite 1 0 0 1 

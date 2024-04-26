@@ -8,6 +8,7 @@
 library IEEE;
 use IEEE.numeric_bit.all;
 
+
 entity contador is
     Port (
         rst, clk  : in bit;
@@ -17,22 +18,22 @@ entity contador is
 end contador;
 
 architecture arch_contador of contador is
-	 signal count : integer := 0;
+	 signal count : unsigned(5 downto 0) := (others => '0');
 begin
     process(rst,clk) 
     begin
         if (rst = '0') then 
-            count := 0;
+            count <= (others => '0');
         elsif (clk'event and clk = '1') then 
 				if (count = 64) then
-					count := 0;
+					count <= (others => '0');
 				else
-					count := count + 1;
+					count <= count + 1;
 			   end if;
         end if;
     end process;
 	 
-	 contagem <= to_bit_vector(count);	 
-	 count_end <= '1' when count = 64 else 0;
+	 contagem <= bit_vector(count);	 
+	 count_end <= '1' when count = "111111" else '0';
 
 end arch_contador;

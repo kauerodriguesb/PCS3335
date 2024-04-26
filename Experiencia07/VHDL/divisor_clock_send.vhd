@@ -8,15 +8,15 @@
 library IEEE;
 use IEEE.numeric_bit.all;
 
-entity divisor_clock is
+entity divisor_clock_send is
     port ( 
         clk_in  : in  bit;
         rst     : in  bit;
         clk_out : out  bit
     );
-end divisor_clock;
+end divisor_clock_send;
 
-architecture arch_div of divisor_clock is
+architecture arch_div of divisor_clock_send is
 
     -- Desconsidero 3200 ciclos iniciais para a contagem ficar inteira.
     -- Após, crio um ciclo de clock na saída para cada 10416 ciclos da entrada.

@@ -1,5 +1,5 @@
 library IEEE;
-use IEEE.numeric_std.all;
+use IEEE.numeric_bit.all;
 
 entity multisteps is 
 port(
@@ -45,12 +45,12 @@ architecture arch_multi of multisteps is
     signal fim_contagem : bit;
     signal kpw : bit_vector(31 downto 0);
 
-    signal ai, bi, ci, di, ei, fi, gi, hi : in bit_vector(31 downto 0);
-    signal ao, bo, co, do, eo, fo, go, ho : out bit_vector(31 downto 0);
+    signal ai, bi, ci, di, ei, fi, gi, hi : bit_vector(31 downto 0);
+    signal ao, bo, co, do, eo, fo, go, ho : bit_vector(31 downto 0);
 
 begin
     
-    CONTAGEM: contador port map(rst, clk, contagem, fim_contagem);
+    CONTAGEM_LBL: contador port map(rst, clk, contagem, fim_contagem);
 
     CALCULO_KPW: calcula_kpw port map(msgi, contagem, kpw);
 
@@ -67,13 +67,13 @@ begin
     gi <= H(6) when contagem(5 downto 4) = "00" else go;
     hi <= H(7) when contagem(5 downto 4) = "00" else ho;
 
-    haso(31 downto 0) <= ao + H(0);
-    haso(63 downto 32) <= bo + H(1);
-    haso(95 downto 64) <= co + H(2);
-    haso(127 downto 96) <= do + H(3);
-    haso(159 downto 128) <= eo + H(4);
-    haso(191 downto 160) <= fo + H(5);
-    haso(223 downto 192) <= go + H(6);
-    haso(255 downto 224) <= ho + H(7);
+    haso(31 downto 0) <= bit_vector(unsigned(ao) + unsigned(H(0)));
+    haso(63 downto 32) <= bit_vector(unsigned(bo) + unsigned(H(1)));
+    haso(95 downto 64) <= bit_vector(unsigned(co) + unsigned(H(2)));
+    haso(127 downto 96) <= bit_vector(unsigned(do) + unsigned(H(3)));
+    haso(159 downto 128) <= bit_vector(unsigned(eo) + unsigned(H(4)));
+    haso(191 downto 160) <= bit_vector(unsigned(fo) + unsigned(H(5)));
+    haso(223 downto 192) <= bit_vector(unsigned(go) + unsigned(H(6)));
+    haso(255 downto 224) <= bit_vector(unsigned(ho) + unsigned(H(7)));
     
 end arch_multi;
